@@ -1,11 +1,15 @@
+<!--- Taken From Khan Academy HTML/JS: Making webpages interactive with jQuery-->
+
+
 <!-- Unit 11 Project
 Requirements
-[  ] $() Select by Element, ID AND Class 
-[  ] Use Three Different jQuery Methods 
+[  ] $() Select by Element, ID AND Class
+[  ] Use Three Different jQuery Methods
 [  ] Add Five CSS Declarations
 [  ] Include Three Images
 
-Select ONE Additional 
+
+Select ONE Additional
 [ no ] Feature 1 - Use .hide() & .show() method
 [ no ] Feature 2 - Use .addClass() method
 [ no ] Feature 3 - Use .slideDown() method
@@ -13,61 +17,122 @@ Select ONE Additional
 [ no ] Feature 5 - Use .fadeIn() method
 -->
 
+
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Unit 11 Project</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
-  <body>
-    <button id="mem1-button">Memory #1</button>
-    <button id="mem2-button">Memory #2</button>
-    <button id="mem3-button">Memory #3</button>
-    <h1>My Top 3 Memories of <span>This Year</span></h1>
-    <ol>
-      <li>
-        <h2 id="mem1">Hmmm</h3>
-        <p>More about this memory.</p>
-      </li>
-
-      <li>
-        <h2 id="mem2">Memory #2</h3>
-        <p>More about this memory.</p>
-      </li>
-
-      <li>
-        <h2 id="mem3">Memory #3</h3>
-        <p>More about this memory</p>
-      </li>
-    </ol>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script>
-
-      $("h2").text("AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
-
-      // ======================== Button #1
-      $("#mem1-button").click(function () {
-        $("#mem1").css("color", "purple");
-        $("#mem1").text("me, my sister, and our cousin reunited with our other favorite cousin after 4 years");
-      });
-
-      // ======================== Button #2
-      $("#mem2-button").click(function () {
-        $("#mem2").css("color", "blue");
-        $("#mem2").text("uuh");
-      });
-
-      // ======================== Button #3
-      $("#mem3-button").click(function () {
-        $("#mem3").css("color", "green");
-        $("#mem3").text("surprise 🎉");
-      });
+ <head>
+   <meta charset="utf-8" />
+   <title>Unit 11 Project</title>
+   <link href="style.css" rel="stylesheet" type="text/css" />
 
 
-    </script>
-  </body>
+    <style>
+     body {
+       font-family: Arial;
+       background-color: #f5f5f5;
+       text-align: center;
+     }
+
+
+     h1 {
+       color: rgb(183, 0, 131);
+     }
+
+
+     span {
+       color: rgb(255, 110, 233);
+     }
+
+
+     .memory {
+       margin: 20px;
+       padding: 10px;
+       background-color: white;
+       border-radius: 10px;
+     }
+
+
+     img {
+       width: 200px;
+       border-radius: 10px;
+       display: none;
+     }
+
+
+     .highlight {
+       background-color: rgb(255, 137, 243);
+     }
+   </style>
+
+
+ </head>
+ <body>
+   <button id="mem1-button">Memory #1</button>
+   <button id="mem2-button">Memory #2</button>
+   <button id="mem3-button">Memory #3</button>
+   <h1>My Top 3 Memories of <span>This Year</span></h1>
+  
+   <ol>
+     <li class="memory">
+       <h2 id="mem1">Hmmm</h2>
+       <p>it was super duper duper duper duper duper duper duper duper duper duper duper fun we text all the time but its always best to hang out in person</p>
+       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXt5CiYzk85knb-iFnkakGkGmVF2SU48XDqA&s">
+     </li>
+
+
+     <li class="memory">
+       <h2 id="mem2">playing sh1 and sh3</h2>
+       <p>idk what else to put here but i loved playing these games and i think of all the silent hills ive played so far (that being 1, 2, 3, F, and the 2nd Remake) the first is my fav i had so much fun beating it and i got the good+ ending cause cybil rage baited me but it made me restart and i found more stuff ay ya ya yayay </p>
+       <img src="https://static.wikia.nocookie.net/amazon-invincible/images/6/61/MohawkMark.png/revision/latest?cb=20250421161445">
+     </li>
+
+
+     <li class="memory">
+       <h2 id="mem3"> backrooms</h2>
+       <p>im predicting the future im gonna watch the backrooms movie with my cousin (we got obsessed with it in 2020) and im gonna love it and its gonna be a fun memory cause we 100% got food after ya ya ayayaya i cant think rn im tired son OH and invincible s4 is fire woo</p>
+       <img src="https://static.wikia.nocookie.net/villains/images/0/0d/No_goggles_Mark.webp/revision/latest/scale-to-width/360?cb=20251003122530">
+     </li>
+   </ol>
+
+
+
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+   <script>
+
+
+     $("h2").text("AHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH");
+
+
+     // ======================== Button #1
+     $("#mem1-button").click(function () {
+       $("#mem1").css("color", "purple");
+       $("#mem1").text("me, my sister, and our cousin reunited with our other favorite cousin after 4 years");
+       $(".memory img").hide();
+       $("#mem1").siblings("img").fadeIn();
+     });
+
+
+     // ======================== Button #2
+     $("#mem2-button").click(function () {
+       $("#mem2").css("color", "blue");
+       $("#mem2").text("uuh");
+        $(".memory img").hide();
+       $("#mem2").siblings("img").fadeIn();
+     });
+
+
+     // ======================== Button #3
+     $("#mem3-button").click(function () {
+       $("#mem3").css("color", "green");
+       $("#mem3").text("surprise 🎉");
+        $(".memory img").hide();
+       $("#mem3").siblings("img").fadeIn();
+     });
+
+
+
+
+   </script>
+ </body>
 </html>
-
-<!--- Taken From Khan Academy HTML/JS: Making webpages interactive with jQuery-->
